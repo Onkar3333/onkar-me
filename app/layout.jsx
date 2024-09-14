@@ -1,8 +1,11 @@
 // Import JetBrains Mono from the correct path
-import { JetBrains_Mono } from 'next/font/google'; 
+import { JetBrains_Mono } from 'next/font/google';
 // Import localFont for your local fonts
-import localFont from 'next/font/local'; 
+import localFont from 'next/font/local';
+import Header from '@/components/Header';
 import './globals.css';
+import PageTransition from '@/components/PageTransition';
+import StairTransition from '@/components/StairTransition';
 
 // Configure JetBrains Mono from Google Fonts
 const jetbrainsMono = JetBrains_Mono({
@@ -28,7 +31,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${jetbrainsMono.variable} ${geistMono.variable}`}>
-        {children}
+
+        <Header />
+        <StairTransition  />
+        <PageTransition >
+          {children}
+        </PageTransition>
+
+
       </body>
     </html>
   );
